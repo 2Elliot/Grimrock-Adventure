@@ -39,8 +39,8 @@ public class playerInput : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Mouse1) && controller.AtRest)
 		{
 			rightClick = true;
-			yRotation = orientation.rotation.eulerAngles.y;
-			prevYRotation = yRotation;
+            yRotation = orientation.rotation.eulerAngles.y;
+            prevYRotation = yRotation;
 			controller.canMove = -1;
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;

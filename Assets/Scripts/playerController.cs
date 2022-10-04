@@ -82,8 +82,7 @@ public class playerController : MonoBehaviour
 		get
 		{
 			var ray = new Ray(transform.position, -transform.forward);
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit, travelDistance, layer))
+			if (Physics.Raycast(ray, out RaycastHit hit, travelDistance, layer))
 				return false;
 			else
 				return true;
@@ -94,8 +93,7 @@ public class playerController : MonoBehaviour
 		get
 		{
 			var ray = new Ray(transform.position, -transform.right);
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit, travelDistance, layer))
+			if (Physics.Raycast(ray, out RaycastHit hit, travelDistance, layer))
 				return false;
 			else
 				return true;
@@ -106,8 +104,7 @@ public class playerController : MonoBehaviour
 		get
 		{
 			var ray = new Ray(transform.position, transform.right);
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit, travelDistance, layer))
+			if (Physics.Raycast(ray, out RaycastHit hit, travelDistance, layer))
 				return false;
 			else
 				return true;
