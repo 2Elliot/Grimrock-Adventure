@@ -7013,7 +7013,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33158
+  m_Name: pb_Mesh23640
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12806,7 +12806,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -12880,22 +12879,6 @@ Transform:
   m_Father: {fileID: 1105637252}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c29aed36734475386483aca80474ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 963194227}
-  layer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &1013982452
 GameObject:
   m_ObjectHideFlags: 0
@@ -13944,6 +13927,7 @@ GameObject:
   - component: {fileID: 1105637253}
   - component: {fileID: 1105637254}
   - component: {fileID: 1105637255}
+  - component: {fileID: 1105637256}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -14096,6 +14080,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461a43eb186640b48ac9147d6b0660b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1105637256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105637247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c29aed36734475386483aca80474ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectable: {fileID: 0}
+  mainCamera: {fileID: 963194227}
+  toggle: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!43 &1143146968
 Mesh:
   m_ObjectHideFlags: 0
@@ -20791,7 +20793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02ac32b87ec9e4ab28e2a6af8084a7c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.139
+      value: 0.802
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02ac32b87ec9e4ab28e2a6af8084a7c4, type: 3}
       propertyPath: m_LocalPosition.z

@@ -4,35 +4,94 @@ using UnityEngine;
 
 public class screenRayCast : MonoBehaviour
 {
-
+    public Transform collectable;
     public Camera mainCamera;
+
+    public bool toggle;
+
+    bool clicked = false;
 
     public LayerMask layer;
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (!toggle)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-
-            if (Physics.Raycast(ray, out RaycastHit hit, 2, layer))
+            if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log(hit.collider.name);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                hit.transform.position = hit.point;
+                if (Physics.Raycast(ray, out RaycastHit hit, 2, layer))
+                {
+                    collectable = hit.transform;
+                }   
             }
+            if (Input.GetMouseButton(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out RaycastHit hit, 3, ~layer))
+                {
+                    collectable.position = hit.point + new Vector3(0f, 0.1f, 0f);
+                }
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+
+                if (collectable != null)
+                {
+                    collectable = null;
+                }
+            }
+
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        else
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-
-            if (Physics.Raycast(ray, out RaycastHit hit, 2, layer))
+            if (clicked == false)
             {
-                Physics.Raycast(ray, out RaycastHit mousePosition, 2, ~layer);
-                hit.transform.position = mousePosition.transform.position;
+                if (Input.GetMouseButtonDown(0))
+                {
+
+                    Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    if (Physics.Raycast(ray2, out RaycastHit hit2, 2, layer))
+                    {
+                        collectable = hit2.transform;
+                        clicked = true;
+                    }
+                }
             }
+            else
+            {
+                if (clicked == true)
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    if (Physics.Raycast(ray, out RaycastHit hit, 3, ~layer))
+                    {
+                        collectable.position = hit.point + new Vector3(0f, 0.1f, 0f);
+                    }
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        if (collectable != null)
+                        {
+                            collectable = null;
+                            clicked = false;
+                        }
+                    }
+                }
+            }
+        } 
+    }
+
+    public bool moving
+    {
+        get
+        {
+            if (collectable != null)
+                return true;
+            else
+                return false;
         }
     }
 }

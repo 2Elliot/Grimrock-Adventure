@@ -9,20 +9,16 @@ public class fall : MonoBehaviour
 
     void Update()
     {
-        Ray ray = new Ray(transform.position, new Vector3(0, -1, 0));
-
-        Debug.DrawRay(transform.position, new Vector3(0, -1, 0), Color.red);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, layer))
+        if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log(hit.transform.name);
-            Debug.Log(transform.position.y - hit.transform.position.y);
-            if ((transform.position.y - hit.transform.position.y) > 0.02f)
+            Ray ray = new Ray(transform.position, new Vector3(0, -1, 0));
+            if (Physics.Raycast(ray, out RaycastHit hit, layer))
             {
-                transform.position = new Vector3(transform.position.x, hit.transform.position.y + 0.01f, transform.position.z);
+                if ((transform.position.y - hit.transform.position.y) > 0.02f)
+                {
+                    transform.position = hit.point + new Vector3(0f, 0.005f, 0f); ;
+                }
             }
         }
-
-
     }
 }
